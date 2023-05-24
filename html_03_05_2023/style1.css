@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+/*Comentário
+    a sintaxe do CSS é:
+    elemento{
+        propriedade:valor;
+    }
+
+
+*/
+
+h1{
+    color: brown;
+}
+
+h2{
+    color: rgb(67, 67, 214);
+}
+
+p{
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#navegacao{
+    color: gray;
+    
+}
+
+#navegacao ul{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+}
+
+
+.destaque{
+    color: green;
+    font-weight: bold;
+}
+
+p.destaque{
+    font-family: tahoma;
+}
+
+#navegacao ul > li{
+    list-style-type: none;
+}

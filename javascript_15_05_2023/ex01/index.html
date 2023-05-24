@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exerc´cio 1 JS</title>
+</head>
+<body>
+    <h1>Exercício JS</h1>
+    <input type="number" id="numero">
+    <input type="button" value="Ver" onclick="ver()">
+    <div id="res">
+
+    </div>
+    <script>
+        function ver(){
+            var n1 = Number(document.getElementById('numero').value)
+            var res = document.getElementById('res')
+            for (c = 1 ; c<=10 ; c = c+1){
+                var tabuada = n1*c
+                res.innerHTML = `${n1} x ${c} = ${tabuada}`
+                
+            }
+        }
+        //console.log('Hello World !')
+    </script>
+</body>
+</html>

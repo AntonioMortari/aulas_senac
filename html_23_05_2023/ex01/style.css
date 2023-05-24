@@ -1,0 +1,190 @@
+@charset "UTF-8";
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+@keyframes animation-text{
+    0%{
+        transform: scale(.9);
+    }
+
+    50%{
+        transform: scale(1.1);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes animation-box{
+    0%{
+        border-radius: 0;
+    }
+
+    50%{
+        border-radius: 0px 0px 80px 0px;
+        background-color: red;
+    }
+
+    70%{
+        border-radius: 80px 0px 80px 80px;
+        transform: rotate(.5turn);
+        background-color: yellow;
+    }
+
+    100%{
+        border-radius: 200px;
+        transform: rotate(1turn);
+        background-color: orange;
+    }
+}
+
+body{
+    background-color: rgb(218, 218, 218);
+}
+
+
+header{
+    display: flex;
+    justify-content: space-around;   
+    align-items: center;
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.178);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.397);
+    position: fixed;
+    width: 100%;
+    background-color: rgb(218, 218, 218);
+}
+
+header h1{
+    cursor: pointer;
+    
+}
+
+header,ul{
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+}
+
+ul{
+    gap: 40px;
+}
+
+ul a{
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    transition: .3s;
+    font-weight: 600;
+
+}
+
+ul a:hover{
+    background-color: black;
+    color: white;
+}
+
+header button{
+    padding: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.288);
+    border-radius: 5px;
+    background-color: rgb(108, 245, 108);
+    font-weight: 600;
+    cursor: pointer;
+    box-sizing: 0px 0px 10px black;
+    animation: animation-text 2s linear infinite alternate;
+    transition: .3s;
+    text-transform: uppercase;
+}
+
+header button:hover{
+    background-color: rgb(39, 117, 39);
+    color: white;
+    animation: none;
+    transform: scale(1.1);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    text-align: justify;
+    background-color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 20px;
+    padding-bottom: 50px;
+}
+
+main #s1{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+main #s1 time{
+    margin: auto;
+}
+
+main #s1 h2{
+    font-size: 2.5em;
+    padding: 10px;
+}
+
+main #s1 img{
+    display: block;
+    margin: auto;
+    padding: 30px 0px;
+    transition: 1s;
+}
+
+main #s1 figcaption{
+    text-align: center;
+    display: none;
+}
+
+main #s1 , #s2 > p{
+    line-height: 2;
+}
+
+main #s1 img:hover{
+    transform: scale(1.1);
+    
+}
+
+main #s1 div.box{
+    margin: auto;
+    margin-top: 30px;
+    width: 150px;
+    height: 150px;
+    background-color: green;
+    animation:animation-box 3s linear infinite alternate ;
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+
+}
+
+footer a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.2em;
+    
+}
+
+footer a:hover{
+    text-decoration: underline;
+}
+

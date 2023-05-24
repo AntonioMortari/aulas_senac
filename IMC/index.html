@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cáuculo IMC</title>
+</head>
+<body>
+
+    <header>
+
+        <h1>Cálculo <span>IMC</span></h1>
+
+        <img class="btn" src="https://cdn4.iconfinder.com/data/icons/navigation-40/24/hamburger-menu-512.png" alt="" id="btnmenu" onclick="menuh()">
+
+        <img class="btn" id="btnclose" src="https://th.bing.com/th/id/R.55ad1696367073a56dc08c960c67dfae?rik=U0J23epvnRj6aA&riu=http%3a%2f%2fimage.flaticon.com%2ficons%2fpng%2f512%2f70%2f70091.png&ehk=Du4Uflshgfr%2bm4wWhVzRni0dVbFZsOXipoU1CkW7sYs%3d&risl=&pid=ImgRaw&r=0" alt="" onclick="closemenu()">
+
+        <nav id="links">
+
+            <a href="#">Home</a>
+            <a href="#">Outras Ferramentas</a>
+            <a href="#">Sobre</a>
+        </nav>
+
+    </header>
+    <div id="conteiner">
+        <h3>Data e hora:</h3>
+        <div id="data">
+
+        </div>
+
+        <div id="hora">
+
+        </div>
+    </div>
+    <main>
+
+        <section>
+            <h2>Insira as informações</h2>
+            <form>
+                <label for="idade">
+                    Idade:
+                    <input type="number" id="idade" placeholder="Insira sua idade">
+                </label>
+
+                <label for="altura">
+                    Altura:
+                    <input type="number" id="altura" placeholder="Insira sua altura em M">
+                </label>
+
+                
+
+                <label for="genero">
+                    Gênero:
+                    <input type="text" name="genero" id="genero" placeholder="Insira seu gênero">
+                </label>
+
+                <label for="peso">
+                    Peso:
+                    <input type="text" name="peso" id="peso" placeholder="Insira seu peso">
+                </label>  
+            </form>
+
+            <a href="#" id="button" onclick="imc()">Resultado</a>
+
+            <div id="res">
+
+            </div>
+        </section>
+
+        <div class="imagem">
+            <img src="img/imc1.png" alt="">
+        </div>
+
+        
+    </main>
+
+    
+
+
+    <footer>
+        <p>Site desenvolvido por <a href="https://github.com/antoniomortari" target="_blank">Antonio Mortari</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
