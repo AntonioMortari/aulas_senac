@@ -18,5 +18,61 @@
 
 body{
     font-family: 'Source Sans Pro', sans-serif;
-    background-color: white;
+    color: white;
+    width: 100%;
+    height: 100vh;
+    background-image:linear-gradient(102.32deg, #030422 -2.74%, #090114 101.6%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+div.cards{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+div.card-back{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-back{
+    width: 348px;
+    height: 486px;
+    box-shadow: 0px 113px 45px rgba(0, 0, 0, 0.02), 0px 64px 38px rgba(0, 0, 0, 0.08), 0px 28px 28px rgba(0, 0, 0, 0.13), 0px 7px 16px rgba(0, 0, 0, 0.15), 0px 0px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+}
+/* : = pseudoclasse */
+.card-back:first-child{
+    background-image: url(assets/background1.png);
+    font-size: 32px;
+}
+
+.card-back:last-child{
+    background-image: url(assets/background3.png);
+    font-size: 32px;
+}
+
+.card-back h1{
+    color: transparent;
+    -webkit-text-stroke: 1px #312D74;
+}
+
+.card-front{
+    width: 436px;
+    height: 608px;
+    background-image: url(assets/background2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    box-shadow: 0px 113px 45px rgba(0, 0, 0, 0.02), 0px 64px 38px rgba(0, 0, 0, 0.08), 0px 28px 28px rgba(0, 0, 0, 0.13), 0px 7px 16px rgba(0, 0, 0, 0.15), 0px 0px 0px rgba(0, 0, 0, 0.15);
+}
+
+.card-front div.cabecalho{
+    width: 263px;
 }
