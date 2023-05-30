@@ -1,0 +1,31 @@
+<script>
+    var teste = 1
+    var nome = "eu"
+    console.log(teste)
+    console.log(nome)
+
+    var $nome = "eu denovo"
+    var _nome = "eu pela terceira vez :)"
+    console.log($nome)
+    console.log(_nome)
+
+    var num = []
+    var c = 0
+    var impar = 0
+    var par  = 0
+    for (c == 0 ; c<10 ; c++){
+        num.push(Math.floor(Math.random()*10))
+        num[c].toFixed(2)
+        if (num[c]%2 == 0){
+            console.log(`${num[c]} é par`)
+            par++
+        }else{
+            console.log(`${num[c]} é impar`)
+            impar++
+        }
+    }
+
+    console.log(`Ao todo foram ${par} números pares e ${impar} números impares`)
+
+    
+</script>
