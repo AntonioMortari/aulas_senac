@@ -1,5 +1,6 @@
 //imc = peso * (altura*altura)
 function imc(){
+var name = document.getElementById('name').value
 var txtaltura = document.getElementById('altura')
 var txtpeso = document.getElementById('peso')
 var res = document.getElementById('res')
@@ -33,7 +34,7 @@ if (imc < 18.5){
     }
 }
 
-res.innerHTML = `Seu IMC é ${imc.toFixed(2)}, sua classificação é : ${cla}`
+res.innerHTML = `${name}, Seu IMC é ${imc.toFixed(2)}, sua classificação é : ${cla}`
 
 }
 
@@ -58,7 +59,7 @@ var data = document.getElementById('data')
 var hora = document.getElementById('hora')
 
     
-    data.innerHTML = datetoday.getDate() + "/" + datetoday.getMonth() + "/" + datetoday.getFullYear()
+    data.innerHTML = 'Hoje é dia '+ datetoday.getDate()
     hora.innerHTML = datetoday.getHours() + ":" + datetoday.getMinutes() + ":" + datetoday.getSeconds()
 
 

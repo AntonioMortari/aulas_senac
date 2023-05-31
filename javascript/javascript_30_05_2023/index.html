@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Teste Menu Hamburguer</title>
+</head>
+<body>
+
+    <button id="btn">
+        <img id="burguer" src="https://img.icons8.com/?size=512&id=120374&format=png" alt="">
+        <img id="close" src="https://img.icons8.com/?size=512&id=46&format=png" alt="">
+
+    </button>
+    
+</body>
+
+<script>
+    var btn = document.getElementById('btn');
+
+    function toggleMenu(){
+        btn.classList.toggle('active')
+    }
+
+    btn.addEventListener('click', toggleMenu)
+</script>
+</html>
