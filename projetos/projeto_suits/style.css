@@ -22,15 +22,18 @@ body{
     width: 100vw;
     font-family: 'Lato', sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    overflow-x: hidden;
 }
 
 #section4{
-    width: 95%;
-    height: 400px;
+    width: 90%;
+    height: 500px;
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    align-items: center;
+    gap: 50px;
+    margin: auto;
 }
 
 #section-red{
@@ -40,7 +43,7 @@ body{
     color: white;
     background-size: cover;
     background-position: center center;
-    padding:45px;
+    padding:60px;
     display: flex;
     flex-direction: column;
     gap: 35px;
@@ -66,9 +69,144 @@ body{
 #section-red-text2{
     display: flex;
     flex-direction: column;
+    gap: 55px;
+    
 }
 
 .section-red-text2-icon{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    gap: 30px;
+}
+
+.section-red-text2-icon i{
+    font-size: 1.8em;
+}
+
+.section-red-text2-icon-text{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.section-red-text2-icon-text h2{
+    font-size: 1.1em;
+}
+
+.section-red-text2-icon-text p{
+    font-weight: 400;
+    font-size: 1em;
+}
+
+#section-icon{
+    width: 50%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.section-icon-text{
+    width: 50%;
+    height: 100%;
+
+}
+
+.section-icon-text2{
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+}
+
+.section-icon-text2 i{
+    font-size: 3.5em;
+    color: var(--main-color);
+}
+
+.section-icon-text2 span{
+    font-size: 4em;
+    font-weight: 900;
+}
+
+.section-icon-text2 p{
+    font-weight: bold;
+    font-size: 1em;
+}
+    
+#section-icon-text-1{
+    border-right: 2px solid var(--secondary-color);
+}
+
+#section-icon-text2-1{
+    border-top: 2px solid var(--secondary-color);
+}
+
+#section-icon-text2-2{
+    border-top: 2px solid var(--secondary-color);
+}
+
+#section6{
+    width: 90%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    margin-top: 60px;
+    gap: 30px;
+
+}
+
+#section6-text{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#section6-text h2{
+    font-size: 2.5em;
+    text-align: center;
+    width: 60%;    
+    font-weight: bold;
+}
+
+
+#section6-text h2 span{
+    color: var(--main-color);
+}
+
+#section6-img{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+
+}
+
+.section6-image{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.section6-image span{
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+.section6-image p{
+    font-weight: bold;
+}
+
+
+.section6-image img{
+    width: 340px;
+
 }
