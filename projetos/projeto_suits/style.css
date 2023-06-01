@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+/* font-family: 'Lato', sans-serif; */
+
+:root {
+    --main-color: #d92123;
+    --primary-text-color: #fff;
+    --secondary-text-color: #191919;
+    --secondary-color: #868686;
+    --tertiary-color: #eff3f4;
+    --secondary-bg-color: #5c1011;
+  }
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+#section4{
+    width: 95%;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+#section-red{
+    height: 100%;
+    width: 50%;
+    background-image: url(img/img/myimg/pattern.png);
+    color: white;
+    background-size: cover;
+    background-position: center center;
+    padding:45px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+#section-red-text{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+#section-red-text h4{
+    text-transform: uppercase;
+    font-size: .9em;
+
+}
+
+#section-red-text p{
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+#section-red-text2{
+    display: flex;
+    flex-direction: column;
+}
+
+.section-red-text2-icon{
+    display: flex;
+    flex-direction: row;
+}
