@@ -55,10 +55,22 @@ header nav a {
     font-size: 1.2em;
     font-weight: 400;
     transition: 0.4s;
+    position: relative;
 }
 
-header nav a:hover{
-    color: #17A37C;
+header nav a::after{
+    content: ' ';
+    width: 0%;
+    height: 2px;
+    background-color: #0f614a;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: .4s;
+}
+
+header nav a:hover::after{
+    width: 100%;
 }
 
 div#conteiner{
@@ -218,6 +230,10 @@ div#res{
         width: 600px;
         position: relative;
         left: 20px;
+    }
+
+    header nav a:hover::after{
+        width: 0%;
     }
 }
 

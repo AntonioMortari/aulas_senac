@@ -1,0 +1,28 @@
+
+
+:root{
+	--brand-green: #00856F;
+	--brand-green-light:#DCE9E2;
+	--brand-green-light-02:#F7F9F9;
+	--brand-beige:#FFFAF1;
+	--gray-headline:#212529;
+	--gray-paragraph:#495057;
+	--white:#fff;
+}
+
+/*link ícones html*/
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+
+Whatsapp : <i class="bi bi-whatsapp"></i>
+
+Check : <i class="bi bi-check-lg"></i>
+
+Local : <i class="bi bi-geo-alt"></i>
+
+Envelope : <i class="bi bi-envelope"></i>
+
+Insta : <i class="bi bi-instagram"></i>
+
+youtube : <i class="bi bi-youtube"></i>
+
+vector : <i class="bi bi-bezier2"></i> 
