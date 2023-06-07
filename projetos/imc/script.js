@@ -34,10 +34,21 @@ if (imc < 18.5){
     }
 }
 
-res.innerHTML = `${name}, Seu IMC é ${imc.toFixed(2)}, sua classificação é : ${cla}`
+if(altura <=0){
+    window.alert('Valor invalido para a altura')
+}
+
+res.innerHTML = `${name} Seu IMC é ${imc.toFixed(2)}, sua classificação é : ${cla}`
 
 }
 
+var lista = []
+
+lista[0] = "Fabio"
+lista[1] = "João"
+lista[2] = "Maria"
+lista[3] = "Ana"
+v
 function menuh(){
     document.getElementById("links").style.display = "flex"
     document.getElementById("btnmenu").style.display = "none"
