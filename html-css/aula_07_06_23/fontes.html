@@ -1,0 +1,108 @@
+<!-- 
+# Trabalhando com fontes
+Tipografia transmite mensagem
+  - negrito
+  - tamanho
+  - estilo
+## Basic Font Properties
+* font-family
+* font-weight (peso da fonte)
+* font-style
+* font-size
+
+## Font Family
+* tipo de fonte de um elemento
+* Lista de fontes e ordem de prioridade
+* inclui *fallback* font scape
+
+```css
+p {
+  font-family: "Times New Roman", Times, serif;
+}
+- serif (font com dobrinhas)
+- sans (sem as dobrinhas, termina sem as dobrinhas)
+
+https://www.w3.org/TR/css-fonts-3/
+
+## Web Fonts
+- fontes do sistema x fontes da web
+- como usar fontes para web
+  * @font-face
+  * @import
+  * link
+
+  ### Referências
+  https://css-tricks.com/snippets/css/using-font-face
+
+  # Atribuindo mais estilos ás fontes
+  https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals
+
+    letter-spacing -  espaçamento de letras 
+    word-spacing -  espaçamento de palavras 
+    line-height - espaçamento entre linhas
+    text-transform - capitalize, lowercase, uppercase
+    text-decoration
+    * Aparência decorativa de um texto
+      * line: underline | overline | line-through
+        * podemos aplicar mais de 1 valor
+      * sytle: wavy | dotted | double | dashed | solid
+      * color: `<color>` values
+    https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration
+
+    text-align: [left | right | center | justify ]
+    * sombra aplicada a um texto
+    * blur - embaçado
+    * permite múltiplos valores
+    text-shadow: 1px 1px 1px red,
+                2px 2px 1px green; [ offset-x | offset-y | blur-radius | color ]
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fontes</title>
+  <style>
+    p {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      /* font-style: italic; */
+      font-size:  1em;
+      /* font-variant:small-caps; */
+      /* font-stretch: 50%; */
+      /* letter-spacing: 0.2em;  */
+      /* word-spacing: 1em;  */
+      line-height: 1.5;
+      text-transform: capitalize;
+      /* text-decoration: underline; */
+      /* text-align: justify; */
+      /* text-shadow: 1px 1px 1px red,
+                  2px 2px 1px green; */
+    }
+    .sublinhado{
+      text-decoration: underline dotted red;
+    }
+    a.linkprimario {
+      text-decoration:none;
+      color: orange;
+    }
+    a:hover{
+      text-decoration: underline solid red;
+      color: green;
+      background-color: yellow;
+      font-style:italic;
+    }
+    h2{
+      text-align: center;
+      text-shadow: 1px 1px 1px red,
+                  -2px -2px 1px green;
+    }
+  </style>
+</head>
+<body>
+  <h2>Trava língua</h2>
+  <p>Trazei três <span class="sublinhado">pratos</span> de trigo para três tigres tristes <span class="sublinhado">comerem</span></p>
+  <a href="#" class="linkprimario">Clique aqui</a>
+</body>
+</html>

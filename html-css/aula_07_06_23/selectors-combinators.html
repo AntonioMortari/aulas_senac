@@ -1,0 +1,125 @@
+<!-- 
+* Element Selector
+  - Todos os elementos HTML
+* ID Selector
+  - Um elemento que tenha um atributo `id`
+  - cada id deverá ser único
+  - no CSS é representado por `#`
+* Class Selector
+  - OS Elementos que contenham um atributo `class`
+  - Podemos ter uma ou mais classes
+  - no CSS é representado pelo `.`
+* Attribute Selector
+  - Um elemento que tenha um atributo específico
+* Pseudo-class selector
+  - Elementors em um estado específico
+
+  # Multiplos
+  Usamos uma separação por vírgulas para isso
+  ```
+  h1, p, a{
+    color: red;
+  }
+
+  #Combinators - Descendant, identificado por espaço entre os seletores, que busca um dentro do outro
+  procura de forma descendente
+  body article h2 
+
+  #combinators child
+  Seleciona somente os elementos filhos direto do pai
+  body > ul > li
+
+  #Adjacente sibling combinator
+  * Identficado pelo sinal `+` entre os dois seletores
+  * Seleciona somente o elemento do lado direito que é irmão direto da hierarquia
+
+  h3 + p 
+  ou 
+  h ~ p (todos)
+
+  #utilizando - combinators
+  * a utilização de class teríamos a reutilização de CSS
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selector and Combinators</title>
+</head>
+<style>
+  [title] {
+    color: orange;
+  }
+  
+  p:hover{
+    color: blue
+  } 
+  /* p, div, article {
+    color: red;
+  }
+  */
+  /* body article h2{
+    color: red;
+  } */
+  /* pega todos elementos li que estão dentro do ul */
+  body ul li {
+    color: pink;
+  } 
+  /* pega somente os elementos li que são filhos diretos do ul e do body */
+  /* body > ul > li {
+    color: green;
+  }  */
+
+  /* Adjacente */
+  /* h3 + h4{
+    color: gray;
+  }
+  button+button{
+    margin-left: 35px;
+  }
+   */
+
+  /* seleciona todos os irmãos  */
+  /* h1 ~ h3 {
+    color:brown;
+  } */
+
+  /* ul > li[class="subitem"]{
+    color:orange;
+  } */
+  /* ul > li.subitem{
+    color:olive;
+  } */
+  /* .subitem{
+    color:olive;
+  } */
+  
+</style>
+<body>
+
+  <p>Um parágrafo</p>
+  <div title="Um título">Outro parágrafo</div>
+  <h1>Título</h1>
+  <article>
+    <h2>Receita de torta...</h2>
+  </article>
+  
+  <h3>Ingredientes</h3>
+  <ul>
+    <li> item 1</li>
+    <ul>
+      <li class="subitem"> item 2</li>
+    </ul>
+  </ul>
+
+  <h3>Modo de preparo da torta...</h3>
+  <h4>Pegar o ingrediente...</h4>
+  <p class="subitem">Misturar o ingrediente...</p>
+
+  <button>Enviar</button>
+  <button>Cancelar</button>
+</body>
+</html>

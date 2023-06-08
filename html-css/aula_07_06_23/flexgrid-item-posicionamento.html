@@ -1,0 +1,115 @@
+<!-- 
+  https://www.w3schools.com/css/css_grid.asp
+  Trabalhamos com colunas e linhas;
+  Pra isso definimos um container;
+  display: grid
+  Vamos definir as linhas e colunas;
+  grid-template-columns: auto auto //2colunas
+
+  grid-template-rows: // linhas
+  row-gap: espaçamento de linhas
+  column-gap: espaçamento de colunas
+  gap: espaçamento de colunas/linhas
+
+  // quando for usar o justify-content podemos colocar 
+    um width no elemento para ter uma largura maior
+  justify-content: alinhar os elementos internos na horizontal
+  start, end, center
+  
+  // com esses espaçamentos abaixo o gap deixa de funcionar
+  space-around
+  space-between
+  space-evenly : alinha os elementos com espaços igualitários
+
+  align-content: alinhar os elementos na vertical
+  // pra isso precisamos colocar uma altura no container
+
+  grid-column: quantas colunas um elemento vai ocupar
+    acompanhar a coluna antes do 1 até depois do 3 
+    são no total 4 colunas
+  
+  grid-row: quantas linhas um elemento vai ocupar
+    acompanhar a linha antes do 1 até a 
+    ultima linha depois do ultimo número...
+
+  grid-area: quatro parâmetros
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Grid Layout</title>
+</head>
+<style>
+  * {
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+  }
+
+  .grid-container{
+    width:700px;
+    /* height: 700px; */
+    margin: 0 auto;
+    padding: 10px;
+    background-color: darkblue;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    /* grid-template-columns: 300px auto auto; */
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    /* grid-template-rows: 300px auto auto; */
+    /* grid-template-rows: 2fr 1fr 3fr; */
+    /* row-gap: 10px; */
+    /* column-gap: 5px; */
+    gap: 10px;
+    /* justify-content: center; */
+    /* align-content: center;  */
+  }
+
+  .grid-item{
+    padding: 50px 0;
+    background-color: teal;
+    font: 500 40px Arial;
+    color: #fff;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .item1{
+    /* escolher a quantidade de colunas */
+    /* grid-column: 1/3 ; */
+    /* grid-column: 1/4 ; */
+    /* escolher a quantidade de colunas e linhas */
+    /* grid-column: 1 / 3 ; */
+    /* grid-row: 1 / 3; */
+    /* podemos mudar o posicionamento do elemento */
+    /* grid-column: 2 / 3 ; */
+    /* grid-row: 2 / 3; */
+
+    /* grid-area substitui o grid-column e grid-row */
+    /*         Li  Ci  Lf  Cf */   
+    /* grid-area: 1 / 2 / 4 / 4; */
+
+    grid-area: 1 / 2 / 4 / 4;
+
+  }
+</style>
+<body>
+  <section class="grid-container">
+    <div class="grid-item item1">1</div>
+    <div class="grid-item">2</div>
+    <div class="grid-item">3</div>
+    <div class="grid-item">4</div>
+    <div class="grid-item">5</div>
+    <div class="grid-item">6</div>
+    <div class="grid-item">7</div>
+    <div class="grid-item">8</div>
+    <div class="grid-item">9</div>
+
+  </section>
+</body>
+</html>

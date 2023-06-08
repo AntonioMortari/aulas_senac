@@ -1,0 +1,46 @@
+
+<!--
+  Transition
+    transition-property = qual a propriedade que passará pela transição
+    transition-delay: um tempinho pra executar
+    transition-duration = qual a duração que será executada a transição
+    transition-timing-function = efeitos da transição
+    transition-timing-function existem 4 valores padrões (ease, ease-in, ease-out, ease-in-out)
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animações - Transition/Transições</title>
+</head>
+<style>
+  body{
+    margin: 30px;
+  }
+  .box{
+    background-color: #157bad;
+    width: 300px;
+    height: 300px;
+
+    /* transition-property: background-color; */
+    transition-property: background-color, border-radius;
+    /* transition-duration: 2s; */
+    transition-duration: 2s, 1.5s;
+
+    transition-timing-function: ease-in-out; 
+    /* transition-timing-function: cubic-bezier(.15, .89, .85, .26); */
+    
+  }
+
+  .box:hover{
+    background-color: #ec5B40;
+    border-radius: 50%;
+  }
+
+</style>
+<body>
+  <div class="box"></div>
+</body>
+</html>

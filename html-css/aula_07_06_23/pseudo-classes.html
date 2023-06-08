@@ -1,0 +1,143 @@
+<!--
+  # Pseudo-classes
+  Um tipo de selector que irá selecionar um elemento que estiver em um estado específico
+  Exemplo: É o primeiro elementro dentro de uma caixa, ou o elementro está com o ponteiro
+  do mouse em cima dele
+  Pseudo-classes começam com 2 pontos seguindo do nome da pseudo class
+  `:pseudo-class-name`
+  ##
+  * :first-child - o primeiro elemento de uma lista, por exemplo
+  * :nth-of-type() pegue os tipos de <p> que existem dentro de <article>
+  * :nth-child(1,2,3,4) os `filhos` do article
+  * :nth-child-odd-even [even - números pares] [odd - números impares]
+
+  ## açoes do usuário com pseudo-classes
+  * :houver
+  * :focus
+  # Atributos
+  * :disabled
+  * :required
+
+  ## Referencias
+  http://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
+
+  ## Pseudo-elements
+  Com pseudo-elements nós podemos adicionar elementos html pelo próprio CSS
+
+  `::pseudo-element-name`
+
+  ## Exemplos
+  * ::before
+  * ::after
+  * ::first-line
+
+  ## Referência
+  https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pseudo classes </title>
+  <style>
+    /* ul li{
+      font-weight: bold;
+    } */
+    ul li:first-child{
+      font-weight: bold;
+      color:Red;
+    }
+
+    article p:nth-of-type(3){
+      font-variant: small-caps;
+      font-size:12px;
+      color: blue;
+    } 
+    article p:nth-child(2){
+      font-variant: small-caps;
+      font-size:16px;
+      color: red;
+    }
+
+    /* ul li:nth-child(even){
+      background-color: gray;
+    } */
+    /* ul li:nth-child(odd){
+      background-color: rgb(73, 72, 72)
+    } */
+    
+    a {
+      text-decoration: none;
+    }
+    a:hover{
+      color: red;
+    }
+    input:focus{
+      border-color: green;
+      background-color:rgb(4, 233, 4);
+    } 
+    input:disabled{
+      background-color: yellow;
+    }
+    input:required{
+      background-color: rgb(236, 120, 120);
+    }
+    /* é obrigatório o content pra depois usar outras funcionalidades do css*/
+    /* ul li::before{
+      content: "> "; 
+      color: blue;
+    } */
+    /* ul li::after{
+      content: "; ";
+    } */
+    ul li{
+      position: relative;
+    }
+    ul li::before{
+      content:"";
+      width: 10px;
+      height: 1px;
+      background-color:blue;
+      position: absolute;
+      bottom: 0px;
+    }
+
+    /* first-line só as primeiras linhas */
+    /* p::first-line { 
+      font-weight: bold;
+    } */
+    p:nth-of-type(2)::first-line {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>Senac</li>
+    <li>São Paulo</li>
+    <li>Campinas</li>
+    <li>Curitiba</li>
+    <li>Bauru</li>
+    <li>Santos</li>
+  </ul>
+  <article>
+    <h3>Subtitulo</h3>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque eum aliquam ipsa deleniti esse incidunt aliquid atque. Facilis neque adipisci accusamus cupiditate. Aperiam nisi necessitatibus voluptatum ea quis eum at?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe velit, doloremque consequatur minima dolorem molestias dolore, explicabo, quisquam laborum nihil vero tempora incidunt aut quia repellendus cum inventore in fugiat?</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident iste suscipit voluptatum? Unde beatae, commodi, alias quam facere sint tempora deserunt perspiciatis assumenda eum ipsa explicabo vero possimus voluptas molestias?</p>
+  </article>
+  <a href="#">Clique aqui</a>
+  <p>
+    <input type="text" disabled>
+  </p>
+  <div>
+    <input type="text" required>
+  </div>
+  <p>
+    <input type="text">
+  </p>
+</body>
+</html>
