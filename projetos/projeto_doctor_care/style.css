@@ -78,6 +78,15 @@ main{
 }
 /* Menu */
 
+#menu-mobile{
+    display: none;
+}
+
+.btn-mobile{
+    width: 30px;
+    display: none;
+}
+
 #section1-header{
     width: 100%;
     display: flex;
@@ -99,37 +108,9 @@ main{
 #section1-header h1 span{
     color: var(--brand-green);
 }
-
-
-
-#burguer{
-    display: block;
-    width: 20px;
-    height: 2px;
-    background-color: var(--gray-paragraph);
-    border-radius: 2px;
+#btn-mobile{
+    display: none;
 }
-
-#burguer::before{
-    content: ' ';
-    display: block;
-    width: 17px;
-    height: 2px;
-    border-radius: 2px;
-    background-color: var(--gray-paragraph);
-    margin-bottom: 2px;
-}
-
-#burguer::after{
-    content: ' ';
-    display: block;
-    width: 15px;
-    height: 2px;
-    background-color: var(--gray-paragraph);
-    border-radius: 2px;
-    margin-top: 2px;
-}
-
 #section1-menu{
     display: flex;
     flex-direction: row;
@@ -585,6 +566,10 @@ footer{
 }
 
 @media screen and (max-width :800px){
+    #section1-header{
+        padding: 10px;
+    }
+
     #section1{
         display: flex;
         flex-direction: column;
@@ -665,22 +650,70 @@ footer{
 }
 
 @media screen and (max-width:650px){
+    #section1-nav{
+        display: none;
+    }
+    #btn-header{
+        display: none;
+    }
+    #btn-open{
+        display: block;
+        margin-left: 200px;
+        cursor: pointer;
+        transition: .3s;
+    }
+    
+    #btn-open:hover{
+        transform: scale(1.1);
+    }
+
+    #menu-mobile{
+        background-color: #00856F;
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 70px;
+        left: 10;
+    }
+    
+    #menu-mobile ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 40px;
+    }
+    
+    #menu-mobile ul li a{
+        color: var(--brand-green-light);
+        font-size: 1.4rem;
+
+    }
+
+    #menu-mobile ul li a::after{
+        background-color: var(--brand-beige);
+    }
+
+    #menu-mobile.active{
+        display: block;
+    }
+
+    #menu-mobile.active button{
+        display: block;
+        width: 50%;
+        margin: 50px auto;
+    }
+
+    #menu-mobile.active button:hover{
+        border: 1px solid var(--brand-green-light);
+        
+    }
+    
     #section1-header{
         padding: 20px;
         justify-content: space-between;
     }
 
-    #section1-menu{
-        display: none;
-    }
-
-    #section1-header button{
-        display: none;
-    }
-
-    #burguer{
-        display: block;
-    }
+    
 
     #section2{
         bottom: 500px;
@@ -728,6 +761,8 @@ footer{
     }
 
     #section4-img {
+        display: block;
+        margin-left: 60px;
         width: 100%;
         height: 400px;
     }
