@@ -1,0 +1,42 @@
+<script>
+    var num = []
+    var c = 0
+    for (c = 0 ; c<10 ; c++){
+        num[c] = Math.floor(Math.random() * 100 + 1)
+    }
+
+    console.log(num)
+    var c = 0
+    var par = 0
+    var impar = 0
+    var maior = 0
+    var menor = num[1]
+    var soma = 0
+
+    for (c = 0 ; c<10 ; c++){
+        var soma = soma + num[c]
+        if(num[c] %2 == 0){
+            console.log(num[c] + ' é par')
+            par++
+        }else{
+            console.log(num[c] + ' é impar')
+            impar++
+        }
+
+        if(num[c] > maior){
+            maior = num[c]
+        }
+    }
+    var c = 0
+
+    for (c = 0 ; c<=10 ; c++){
+        if(num[c] < menor){
+            menor = num[c]
+        }
+    }
+
+    console.log(`Ao todo foram ${par} números pares e ${impar} números impares :)`)
+    console.log(`O maior número foi ${maior}`)
+    console.log(`O menor número foi ${menor}`)
+    console.log(`A soma de todos os números é ${soma}`)
+</script>

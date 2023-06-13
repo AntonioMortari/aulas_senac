@@ -1,0 +1,33 @@
+<!-- Estrutura de dados -->
+<!-- Objeto com notação JSON -->
+<!-- 
+    {
+        "chave": "valor"
+    } 
+-->
+<script>
+    var obj = {
+        nome: "Matheus",
+        idade: 16,
+        profissao: "Programador",
+        estaTrabalhando: false,
+        logradouro: {
+            endereco: "Rua Sacramento",
+            numero: 490,
+            cidade: "Campinas"
+        }
+    }
+console.log(obj);
+console.log(typeof obj);
+
+console.log(obj.nome);
+console.log(obj.idade);
+console.log(obj.estaTrabalhando);
+
+obj.graduacao = true;
+obj.nome = "Tassio";
+console.log(obj);
+
+console.log(obj.logradouro.cidade);
+
+</script>
