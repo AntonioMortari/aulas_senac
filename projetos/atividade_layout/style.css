@@ -1,0 +1,109 @@
+@charset "UTF-8";
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+
+
+body{
+    background-color: rgba(0, 0, 0, 0.363);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 20vh 10vh 60vh 10vh;
+    grid-template-areas: "h h" "n n" "a m" "f f";
+    gap: 10px;
+}
+
+header,nav,footer,aside,main{
+    transition: .4s;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: pink;
+    grid-area: h;
+}
+
+nav{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    grid-area: n;
+}
+
+aside{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(241, 207, 143);
+    grid-area: a;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(190, 190, 253);
+    grid-area: m;
+    gap: 10px;
+    padding: 10px;
+}
+
+main article{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgb(77, 77, 255);
+    height: 70%;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+main article figure{
+    height: 50%;
+    background-color: yellow;
+    width: 90%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main article p{
+    height: 50%;
+    background-color: greenyellow;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main section{
+    background-color: orange;
+    height: 30%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: purple;
+    grid-area: f;
+}
+
