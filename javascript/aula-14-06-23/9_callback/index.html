@@ -1,0 +1,37 @@
+<script>
+    // function ImprimirDado(dado){
+    //     console.log(dado);
+    // }
+
+    // ImprimirDado(1);
+    // ImprimirDado('texto');
+    // ImprimirDado(true);
+    // ImprimirDado({nome: 'Matheus'});
+    // ImprimirDado([1, 'chuchu', 2, 3]);
+
+    // ImprimirDado( function() {})
+
+    // function ImprimirDados(dado){
+    //     console.log('executar outras tarefas')
+    //     console.log(dado());
+    // }
+
+    // ImprimirDados(
+    //     function(){ 
+    //         return 'Olá Mundo'; 
+    //     }
+    // )
+
+
+    function Exibir(num){
+        console.log(`A operação resultou em ${num}`);
+    }
+
+    function Multiplicacao(a, b, callback){
+        var op = a * b;
+        callback(op);
+    }
+
+    Multiplicacao(2,4, Exibir)
+
+</script>

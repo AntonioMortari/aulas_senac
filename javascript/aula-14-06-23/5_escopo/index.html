@@ -1,0 +1,40 @@
+<!-- Escopo -->
+<!-- block stantement -->
+<!-- declaração de bloco -->
+<!-- scope com var e var é global -->
+<script>
+var x    
+console.log('> exist x antes do bloco')
+console.log(x);
+
+{
+var x = 0;
+}
+
+console.log('> exist x depois do bloco')
+console.log(x);
+
+////////////////////////////////
+
+// console.log('> exite y antes do bloco');
+// console.log(y);
+
+{
+    let y = 1
+    console.log('> exite y no bloco');
+    console.log(y);
+}
+
+///////////////////////////////////
+let z = 0;
+
+{
+    console.log('> exite z fora do bloco', z);
+    z = 1;
+    console.log('> exite z dentro do bloco', z);
+}
+
+console.log('> exite z depois do bloco',z);
+
+
+</script>
