@@ -6,13 +6,25 @@ let time = 2000, //tempo do setniterval
     console.log(images)
     
     function nextImage(){ //função pra trocar imagem
+        // images[currentImageIndex].classList.remove("selected", "animate__animated", "animate__fadeInLeft")
+        images[currentImageIndex].classList.remove("selected")
+
+        
+        currentImageIndex++
+        
+        if(currentImageIndex >= images.length){
+            currentImageIndex = 0
+        }
+        
+        // images[currentImageIndex].classList.add("selected", "animate__animated", "animate__fadeInLeft")
+        images[currentImageIndex].classList.add("selected")
 
     }
 
     function start(){
         console.log('window.loaded')
         setInterval(function(){
-            console.log('troca d imagem')
+            nextImage()
         }, time)
     }
 
