@@ -15,6 +15,16 @@
     --color-gradient:linear-gradient(90deg,var(--color-purple-50), var(--color-purple-100) , var(--color-purple-200));
 }
 
+@keyframes animation_background {
+    0%{
+        background-position: 0%;
+    }
+
+    100%{
+        background-position: 100%;
+    }
+}
+
 
 *{
     padding: 0px;
@@ -38,7 +48,7 @@
     flex-direction:column ;
     height: fit-content;
     background-color: var(--color-light-50);
-    padding: 30px 40px;
+    padding: 40px 50px;
     border-radius: 8px;
     gap: 30px;
     box-shadow: 5px 5px 8px rgba(0,0,0,0.336);
@@ -113,11 +123,52 @@
 }
 
 .input-field input{
+    outline: none;
     border: none;
+    background-color: transparent;
 }
 
 #eyeview{
     cursor: pointer;
+}
+
+#div_password{
+    width: 90%;
+}
+
+#eyeview{
+    position: relative;
+    right: 20px;
+}
+
+#forgot_password a{
+    display: block;
+    color: var(--color-purple-50);
+    text-decoration: none;
+    margin-top: 30px;
+}
+
+#forgot_password a:hover{
+    text-decoration: underline;
+}
+
+#login_button{
+    display: block;
+    background: var(--color-gradient);
+    border: none;
+    outline: none;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin: auto;
+    width: 80%;
+    cursor: pointer;
+    transition: .5s;
+}
+
+#login_button:hover{
+    background-size: 300% 100%;
+    animation: animation_background 4s linear infinite alternate;
 }
 
 /* darkmode */
@@ -125,3 +176,43 @@
 body.active #container{
     background: rgb(19, 18, 18);
 }
+
+body.active #login_form{
+    background-color: var(--color-purple-50);
+    color: white;
+}
+
+body.active #form_header h1::before{
+    background-color: var(--color-purple-200);
+}
+
+body.active #social_media i{
+    color: var(--color-light-50);
+}
+
+body.active #social_media i:hover{
+    color: var(--color-purple-200);
+}
+
+body.active .input-field input{
+    background-color: var(--color-purple-50);
+    outline: none;
+}
+
+body.active .input-box > label{
+    color: var(--color-light-50);
+}
+
+body.active .input-field{
+    border-bottom: 1px solid var(--color-light-50);
+}
+
+body.active #forgot_password a{
+    color: var(--color-light-50);
+}
+
+body.active #login_button{
+    background: var(--color-purple-200)
+}
+
+
