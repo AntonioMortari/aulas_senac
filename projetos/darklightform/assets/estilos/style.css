@@ -116,8 +116,12 @@
     border: none;
 }
 
+#eyeview{
+    cursor: pointer;
+}
+
 /* darkmode */
 
-body.darkmode{
-    background: black;
+body.active #container{
+    background: rgb(19, 18, 18);
 }
