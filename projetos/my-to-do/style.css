@@ -41,7 +41,7 @@ h1:hover::before{
 
 #conteiner input{
     display: block;
-    width: 50%;
+    width: 70%;
     margin: auto;
     padding: 10px;
     height: 50px;
@@ -156,4 +156,21 @@ label:hover{
 
 #remove-all:hover{
     background-color: rgb(243, 27, 27);
+}
+
+footer{
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+footer a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: .4s;
+}
+
+footer a:hover{
+    text-decoration: underline;
 }
