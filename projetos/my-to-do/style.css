@@ -1,0 +1,159 @@
+@charset "UTF-8";
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;    
+    flex-direction: column;
+    gap: 50px;
+}
+
+h1{
+    padding: 30px;
+    position: relative;
+}
+
+h1:before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.178);
+    transition: .6s;
+}
+
+h1:hover::before{
+    width: 100%;
+}
+
+#conteiner{
+    width: 50%;
+}
+
+#conteiner input{
+    display: block;
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.363);
+    margin-bottom: 50px;
+}
+
+#conteiner input:focus{
+    background-color: rgba(0, 0, 0, 0.075);
+    border: 2px solid rgba(0, 0, 0, 0.363);
+    outline: none;
+}
+
+label{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.158);
+    padding: 15px;
+    border-radius: 10px;
+    transition: .6s;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+label:hover{
+    background-color: rgba(0, 0, 0, 0.699);
+    color: white;
+}
+
+
+.buttons{
+    display: flex;
+    gap: 10px;
+    width: 60px;
+}
+
+.btn{
+    width: 30px;
+    height: 30px;
+    /* background-color: inherit; */
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: .6s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    border-radius: 10px;
+}
+
+.btn i{
+    font-size: 2rem;
+}
+
+.check-btn:hover{
+    background-color: rgb(23, 235, 23);
+}
+
+.remove-btn{
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .4s;
+}
+
+.remove-btn:hover{
+    background-color: red;
+    border-radius: 10px;
+    
+}
+
+/* Checked */
+.taskChecked{
+    background-color: rgb(99, 126, 99);
+}
+
+.taskChecked:hover{
+    background-color: rgb(99, 126, 99);
+    color: black;
+}
+
+.taskChecked .task-text{
+    text-decoration: line-through;
+    font-weight: 200;
+}
+
+
+#leg{
+    display: block;
+    margin: auto;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.568);
+}
+
+#remove-all{
+    display: block;
+    margin: 30px auto;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.363);
+    color: white;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: .5s;
+}
+
+#remove-all:hover{
+    background-color: rgb(243, 27, 27);
+}
