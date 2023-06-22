@@ -133,12 +133,12 @@
 }
 
 #div_password{
-    width: 90%;
+    width: 85%;
 }
 
 #eyeview{
     position: relative;
-    right: 20px;
+    right: 30px;
 }
 
 #forgot_password a{
