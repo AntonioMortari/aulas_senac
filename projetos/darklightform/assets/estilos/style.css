@@ -13,6 +13,11 @@
 
     /* gradiente */
     --color-gradient:linear-gradient(90deg,var(--color-purple-50), var(--color-purple-100) , var(--color-purple-200));
+
+    /* dark */
+    --color-dark-50:#797984;
+    --color-dark-100:#312d37;
+    --color-dark-200:#000;
 }
 
 @keyframes animation_background {
@@ -33,6 +38,10 @@
     box-sizing: border-box;
 }
 
+body{
+    transition: .5s;
+}
+
 #container{
     height: 100vh;
     width: 100%;
@@ -40,6 +49,7 @@
     align-items: center;
     justify-content: center;
     background: var(--color-gradient);
+    transition: .4s;
   
 }
 
@@ -52,6 +62,7 @@
     border-radius: 8px;
     gap: 30px;
     box-shadow: 5px 5px 8px rgba(0,0,0,0.336);
+    transition: .5s;
 }
 
 #form_header{
@@ -171,14 +182,15 @@
     animation: animation_background 4s linear infinite alternate;
 }
 
-/* darkmode */
-
-body.active #container{
-    background: rgb(19, 18, 18);
+.input-field i{
+    color: rgb(19, 18, 18);
 }
 
+/* darkmode */
+
+
 body.active #login_form{
-    background-color: var(--color-purple-50);
+    background-color: var(--color-dark-100);
     color: white;
 }
 
@@ -187,7 +199,7 @@ body.active #form_header h1::before{
 }
 
 body.active #social_media i{
-    color: var(--color-light-50);
+    color: var(--color-purple-50);
 }
 
 body.active #social_media i:hover{
@@ -195,8 +207,9 @@ body.active #social_media i:hover{
 }
 
 body.active .input-field input{
-    background-color: var(--color-purple-50);
+    background-color: transparent;
     outline: none;
+    color: var(--color-light-50);
 }
 
 body.active .input-box > label{
@@ -215,4 +228,9 @@ body.active #login_button{
     background: var(--color-purple-200)
 }
 
+body.active .input-field i{
+    color: var(--color-purple-100);
+}
+
+/* darkmode.... */
 
