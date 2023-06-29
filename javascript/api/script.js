@@ -6,11 +6,13 @@ const mostrarResposta = (objeto) =>{
     let resposta = document.querySelector('#resposta')
 
     resposta.innerHTML = `
-        <p>Rua: ${objeto.logradouro}</p>
-        <p>Bairro: ${objeto.bairro}</p>
-        <p>Cidade: ${objeto.localidade}</p>
-        <p>Estado: ${objeto.uf}</p>
+        <p><span>Rua:</span> ${objeto.logradouro}</p>
+        <p><span>Bairro:</span> ${objeto.bairro}</p>
+        <p><span>Cidade:</span> ${objeto.localidade}</p>
+        <p><span>Estado:</span> ${objeto.uf}</p>
     `
+
+    resposta.classList.add('active')
 }
 
 const pegarResposta = () =>{
