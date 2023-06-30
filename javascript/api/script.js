@@ -27,6 +27,14 @@ const pegarResposta = () =>{
     fetch(url)
         .then((resposta) =>{
             resposta.json().then((respostaJson) =>{
+                if(respostaJson[Object.keys(respostaJson)[0]] == true){
+                    console.log('erro')
+                    let resposta = document.querySelector('#resposta')
+                    resposta.innerHTML = `
+                        <p>Erro, CEP não encontrado!</p>
+                    `
+                    return
+                }
                 mostrarResposta(respostaJson)
             })
         })
@@ -40,4 +48,20 @@ const pegarResposta = () =>{
 } 
 
 
+//async await
+// const consultaCep = async () =>{
+//     let cep = document.querySelector('#cep').value
+//     let url = `https://viacep.com.br/ws/${cep}/json/`
+
+//     try{
+//         let response = await fetch(url)
+//         let data = await response.json()
+//         mostrarResposta(data)
+//     } catch(error){
+//         console.log(error)
+//     }
+// }
+
+
 btn.addEventListener('click' , pegarResposta)
+// btn.addEventListener('click' , consultaCep)
