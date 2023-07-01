@@ -1,25 +1,48 @@
-'use strict';
+let btn = document.getElementById('btn')
 
-let btn = document.querySelector('#button');
-
-const exibirResultado = (data) =>{
-    let resposta = document.querySelector('#resposta');
-        resposta.innerHTML = `
-        <p>Rua: ${data.logradouro}</p>
-        <p>Cidade: ${data.localidade}</p>
-        <p>Estado: ${data.uf}</p>
+const mostrarResposta = (objeto) =>{
+    let resposta = document.getElementById('resposta')
+    resposta.innerHTML = `
+        <p>Rua: ${objeto.logradouro}</p>
+        <p>Cidade: ${objeto.localidade}</p>
+        <p>Estado: ${objeto.uf}</p>
     `
-} 
+}
 
 const pegarResposta = () =>{
     let cep = document.querySelector('#cep').value
     let url = `https://viacep.com.br/ws/${cep}/json/`
 
-    fetch(url)
-        .then(response => response.json())
-        .then(data => exibirResultado(data))
-        .catch(error => console.log(error))
+    if (cep.length != 8) {
+        alert('ERRO : Digite um cep válido')
+    } else {
+
+        fetch(url)
+            .then((resposta) => {
+                resposta.json().then((respostaJson) => {
+                    if(respostaJson.erro){
+                        let resposta = document.getElementById('resposta')
+                        resposta.innerHTML = `
+                        <p>CEP não encontrado!</p>
+                        `
+                        return
+                    }else{
+                        mostrarResposta(respostaJson)
+                    }
+                })
+            })
+            .catch(() =>{
+                let resposta = document.getElementById('resposta')
+                resposta.innerHTML = `
+                    <p>CEP não encontrado!</p>
+                `
+            })
+
+    }
 }
 
-btn.addEventListener('click' , pegarResposta)
+btn.addEventListener('click' , (event) =>{
+    event.preventDefault()
+    pegarResposta()
+})
 
