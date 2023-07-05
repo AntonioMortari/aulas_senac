@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="stylesheet" href="src/estilos/style.css">
+    <script src="src/javascript/script.js" defer></script>
+    <title>Cadastro de Clientes</title>
+</head>
+<body>
+
+    <div id="cadastro">
+        <span class="material-icons" id="fechar-cadastro">
+            close
+        </span>
+
+        <h2>Cadastrar Cliente</h2>
+
+        <form>
+            <input type="text" name="nome" id="nome" placeholder="Nome">
+            <input type="email" name="email" id="email" placeholder="Email">
+            <input type="number" name="numero" id="numero" placeholder="Número de telefone">
+            <input type="text" name="cidade" id="cidade" placeholder="Cidade">
+        </form>
+
+        <button id="cadastrar">
+            Cadastrar Cliente
+        </button>
+    </div>
+
+    <header>
+        <h1>Cadastro de Clientes</h1>
+    </header>
+
+    <main>
+        <button id="btn-cadastrar">
+            Cadastrar Cliente
+        </button>
+
+        <table id="clientes-cadastrados">
+            <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Celular</th>
+                <th>Cidade</th>
+                <th>Ação</th>
+            </tr>
+
+            
+        </table>
+    </main>
+    
+</body>
+</html>
