@@ -139,7 +139,7 @@ main{
     border-radius: 5px;
 }
 
-@media screen and (max-width:800px){
+@media screen and (max-width:900px){
     main{
         flex-direction: column;
         width: auto;
