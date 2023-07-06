@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/estilos/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <script src="src/scripts/script.js" defer></script>
+    <title>Calculadora de Gorjetas</title>
+</head>
+<body>
+
+    <section id="conteiner">
+        <div id="titulo">
+            <h1>Calculadora de Gorjetas</h1>
+            <span class="material-icons" id="btn-alternar-modo">
+                dark_mode
+            </span>
+        </div>
+
+        <form>
+            <label for="conta">
+                Quanto ficou a conta?
+                <input class="input" type="number" id="conta" name="conta" placeholder="R$">
+            </label>
+            <label for="qualidade-servico" id="qualidade-servico-label">Como foi o seu serviço?</label>
+            <select name="qualidade-servico" id="qualidade-servico">
+                <option value="0">Escolha uma opção</option>
+                <option value="0.3">Incrível - 30%</option>
+                <option value="0.2">Bom - 20%</option>
+                <option value="0.15">Aceitável - 15%</option>
+                <option value="0.1">Ruim - 10%</option>
+                <option value="0.05">Péssimo - 5%</option>
+            </select>
+            <label for="pessoas">
+                Quantas pessoas vão dividir a conta?
+                <input class="input" type="number" name="pessoas" id="pessoas">
+            </label>
+
+            <button id="btn-calcular">
+                CALCULAR
+            </button>
+        </form>
+
+        <div id="resposta">
+
+        </div>
+    </section>
+    
+</body>
+</html>

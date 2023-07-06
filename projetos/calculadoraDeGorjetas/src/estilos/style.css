@@ -1,0 +1,148 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+@keyframes animation-body{
+    from{
+        background-position: 0%;
+    }
+
+    to{
+        background-position: 100%;
+    }
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to right , white , #DEEFE7 , #B4BEC9);
+    background-size: 400% 100%;
+    animation: animation-body 5s linear infinite alternate;
+}
+
+#conteiner{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* padding: 30px; */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.219);
+    border-radius: 10px;
+    transition: all .2s;
+}
+#titulo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #B4BEC9;
+    padding: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#titulo h1{
+    font-size: 1.2rem;
+}
+
+#titulo span{
+    cursor: pointer;
+    color: #002333;
+    transition: .5s;
+}
+
+#titulo span:hover{
+    transform: scale(1.2);
+}
+
+#conteiner form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 25px;
+}
+
+#conteiner form label{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+form label input{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 1px solid #002333;
+    padding: 5px;
+}
+
+
+
+#conta{
+    width: 40%;
+}
+
+#qualidade-servico-label{
+    margin-bottom: -15px;
+}
+
+#qualidade-servico{
+    outline: none;
+    border: none;
+    box-shadow: 0px 0px 10px #00233379;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#pessoas{
+    width: 40%;
+}
+
+#btn-calcular{
+    width: 50%;
+    margin: 10px auto;
+    font-size: 1.1rem;
+    background-color: #002333;
+    color: white;
+    padding: 5px;
+    outline: none;
+    border: none;
+    box-shadow: 0px 0px 10px #0023337e;
+    transition: .5s;
+    cursor: pointer;
+    border-radius: 7px;
+}
+#btn-calcular:hover{
+    transform: translateY(-20%);
+}
+
+/* DarkMode */
+
+body.active #conteiner{
+    background-color: #002333;
+    color: white;
+}
+body.active #titulo{
+    background-color: white;
+    color: #002333;
+}
+
+body.active form label input{
+    border-color: white;
+    color: white;
+    
+}
+
+body.active #btn-calcular{
+    background-color: #159A9C;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.356);
+}
+
+#resposta{
+    padding: 20px;
+    font-size: 1.1rem;
+}
