@@ -24,9 +24,11 @@ const mostrarResposta = () =>{
         alert('Preencha os dados corretamente!')
         return
     }
+    gorjetaTotal = gorjetaTotal.toLocaleString('pt-br', {style:'currency', currency: 'BRL'})
+    gorjetaParaCada = gorjetaParaCada.toLocaleString('pt-br', {style:'currency' , currency: 'BRL'})
     resposta.innerHTML = `
-        <p>Gorjeta Total: <strong>R$${gorjetaTotal.toFixed(2)}</strong></p>
-        <p>Gorjeta total para cada: <strong>R$${gorjetaParaCada.toFixed(2)}</strong></p>
+        <p>Gorjeta Total: <strong>${gorjetaTotal}</strong></p>
+        <p>Gorjeta total para cada: <strong>${gorjetaParaCada}</strong></p>
     `
 }
 
