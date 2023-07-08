@@ -13,7 +13,11 @@ body{
     justify-content: center;
     overflow-x: hidden;
     gap: 30px;
+    background: url(./img/fundo4.jpg);
+    background-position: center center;
+    background-size: cover;
 }
+
 
 h1{
     color: #050450;
@@ -41,6 +45,7 @@ h1:hover::before{
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.226);
     border-radius: 10px;
     gap: 20px;
+    background-color: white;
 }
 
 #conteiner label{

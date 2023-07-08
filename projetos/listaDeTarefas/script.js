@@ -5,7 +5,7 @@ let conteiner = document.getElementById('conteiner')
 let conteinerTarefas = document.querySelector('#tarefas')
 let inputTarefa = document.querySelector('#input-tarefa')
 let btnRemoverTudo = document.querySelector('#trash')
-let arrayLocalStorage = JSON.parse(localStorage.getItem('tarefas'))
+let arrayLocalStorage = JSON.parse(localStorage.getItem('tarefas')) || []
 
 
 let indice = 0
@@ -16,7 +16,11 @@ const adicionarTarefa = () =>{
         return
     }else{
         let nomeTarefa = inputTarefa.value
-        arrayLocalStorage.push(nomeTarefa)
+        if(arrayLocalStorage === null){
+            arrayLocalStorage[0] = nomeTarefa
+        }else{
+            arrayLocalStorage.push(nomeTarefa)
+        }
         adicionarTarefaLocalStorage()
         let tarefa = document.createElement('div')
         tarefa.classList.add('tarefa')
@@ -46,6 +50,7 @@ const editarTarefa = (elemento) =>{
     let tarefaAtualizada = prompt('Digite a tarefa a clique em OK para atualizar.')
     let indiceTarefaAntiga = arrayLocalStorage.indexOf(nomeTarefaAntiga)
     arrayLocalStorage[indiceTarefaAntiga] = tarefaAtualizada
+    
 
     adicionarTarefaLocalStorage()
 
