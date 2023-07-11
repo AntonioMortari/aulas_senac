@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/estilos/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+      <script type="module" src="src/scripts/script.js" defer></script>
+    <title>Filmes Populares</title>
+</head>
+<body>
+    <header>
+        <h1>Filmes Populares</h1>
+        
+        <label for="filme">
+            <input type="text" name="filme" id="filme" placeholder="Digite algum filme para pesquisar">
+            <span class="material-icons" id="icone-procurar">
+                search
+            </span>
+        </label>
+        
+
+        <p>
+            <input type="checkbox" name="mostrar-favoritos" id="mostrar-favoritos">
+            Mostrar meus filmes favoritos apenas
+            <span class="material-icons" id="icone-pagina-inicial">
+                home
+            </span>
+        </p>
+        <span id="resultados-encontrados"></span>
+    </header>
+
+    <main id="conteiner">
+    <!-- Os filmes aparecerão aqui -->
+    </main>
+
+    <footer>
+        <p>By @<a href="https://www.github.com/antoniomortari" target="_blank">Antonio Mortari</a></p>
+    </footer>
+    
+
+    <script type="module" src="src/scripts/chave.js"></script>
+</body>
+</html>
