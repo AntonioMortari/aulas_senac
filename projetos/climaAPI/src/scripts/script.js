@@ -7,6 +7,7 @@ const urlBandeiras = 'https://flagsapi.com/BR/flat/64.png'
 let inputCidade = document.querySelector('#cidade-input')
 let btnProcurar = document.querySelector('#buscar')
 let msgErro = document.querySelector('#msg-erro')
+let loading = document.querySelector('#loading')
 
 let conteinerDados = document.querySelector('#weather-data')
 conteinerDados.style.display = 'none'
@@ -21,6 +22,9 @@ let vento = document.querySelector('#vento span')
 
 //funções
 const pegarDados = async(cidade) =>{
+    msgErro.style.display = 'none'
+    loading.style.display = 'block'
+    conteinerDados.style.display = 'none'
     let resposta = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&units=metric&appid=${chaveAPI}&lang=pt_br`)
     let dados = await resposta.json()
 
@@ -34,13 +38,14 @@ const mostrarDados = async() =>{
     }else{
         let cidade = inputCidade.value
         const dados = await pegarDados(cidade)
-        console.log(dados)
         if(dados.message == 'city not found'){
             conteinerDados.style.display = 'none'
             msgErro.style.display = 'block'
-            msgErro.innerHTML = '<p class="erro">Cidade não encontrada!</p>' 
+            msgErro.innerHTML = '<p class="erro">Cidade não encontrada!</p>'
+            loading.style.display = 'none' 
             return  
         }else{
+            loading.style.display = 'none'
             conteinerDados.style.display = 'block'
             msgErro.style.display = 'none'
             cidadePesquisada.textContent = `${dados.name}`
