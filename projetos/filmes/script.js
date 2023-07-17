@@ -244,7 +244,7 @@ const carregarItensCurtidos = () =>{
 
         btn.addEventListener('click', (btn) =>{
             removerItemLocalStorage(btn.target)
-            let filme = btn.target.parentNode.parentNode.parentNode.parentNode.parentNode
+            let filme = btn.target.parentNode.parentNode.parentNode.parentNode
             filme.remove()
         })
     })

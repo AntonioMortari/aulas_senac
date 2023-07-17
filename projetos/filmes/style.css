@@ -340,6 +340,14 @@ footer a:hover::before{
         padding: 20px;
     }
 
+    #conteiner-pesquisa label{
+        width: 80%;
+    }
+
+    #opcoes{
+        width: 80%;
+    }
+
     #nav a::before{
         left: 0;
     }
