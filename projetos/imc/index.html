@@ -1,90 +1,73 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- meta -->
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="style.css">
-    <title>Cáuculo IMC</title>
+
+    <!-- scripts -->
+    <script src="main.js" type="module" defer></script>
+
+    <title>Cálculo IMC</title>
 </head>
+
 <body>
 
-    <header>
-
-        <h1>Cálculo <span>IMC</span></h1>
-
-        <img class="btn" src="https://cdn4.iconfinder.com/data/icons/navigation-40/24/hamburger-menu-512.png" alt="" id="btnmenu" onclick="menuh()">
-
-        <img class="btn" id="btnclose" src="https://th.bing.com/th/id/R.55ad1696367073a56dc08c960c67dfae?rik=U0J23epvnRj6aA&riu=http%3a%2f%2fimage.flaticon.com%2ficons%2fpng%2f512%2f70%2f70091.png&ehk=Du4Uflshgfr%2bm4wWhVzRni0dVbFZsOXipoU1CkW7sYs%3d&risl=&pid=ImgRaw&r=0" alt="" onclick="closemenu()">
-
-        <nav id="links">
-
-            <a href="#">Home</a>
-            <a href="#">Outras Ferramentas</a>
-            <a href="#">Sobre</a>
-        </nav>
-
-    </header>
     <div id="conteiner">
-        <h3>Data e hora:</h3>
-        <div id="data">
+        <main class="card">
+            <h1 class="titulo">Cálculo de IMC</h1>
 
-        </div>
+            <form>
+                <div class="conteiner-input">
+                    <label for="peso">Peso (kg)</label>
+                    <input 
+                    type="number" 
+                    name="peso" 
+                    id="peso"
+                    placeholder="60"
+                    required>
+                </div>
 
-        <div id="hora">
 
+                <div class="conteiner-input">
+                    <label for="altura">Altura (m)</label>
+                    <input 
+                    type="number" 
+                    name="altura" 
+                    id="altura"
+                    placeholder="1,60"
+                    required>
+                </div>
+
+                <button id="btn-calcular">
+                    Calcular IMC <img src="assets/img/seta.svg" alt="seta para a direita">
+                </button>
+            </form>
+        </main>
+    </div>
+
+    <div id="conteiner-popup">
+        <div id="popup" class="card">
+            <img src="assets/img/close.svg" id="btn-fechar" alt="">
+            <h2 class="titulo">Seu IMC é 28</h2>
         </div>
     </div>
-    <main>
 
-        <section>
-            <h2>Insira as informações</h2>
-            <form>
-                <label for="nome">
-                    Nome:
-                    <input type="text" id="name" placeholder="Insira seu nome">
-                </label>
+    <div id="mensagem-erro">
+        <p>Preencha os dados corretamente!</p>
+    </div>
 
-                <label for="altura">
-                    Altura:
-                    <input type="number" id="altura" placeholder="Insira sua altura em M">
-                </label>
-
-                
-
-                <label for="genero">
-                    Gênero:
-                    <input type="text" name="genero" id="genero" placeholder="Insira seu gênero">
-                </label>
-
-                <label for="peso">
-                    Peso:
-                    <input type="text" name="peso" id="peso" placeholder="Insira seu peso">
-                </label>  
-            </form>
-
-            <a href="#" id="button" onclick="imc()">Resultado</a>
-
-            <div id="res">
-
-            </div>
-        </section>
-
-        <div class="imagem">
-            <img src="img/imc1.png" alt="">
-        </div>
-
-        
-    </main>
-
-    
-
-
-    <footer>
-        <p>Site desenvolvido por <a href="https://github.com/antoniomortari" target="_blank">Antonio Mortari</a></p>
-    </footer>
-
-    <script src="script.js"></script>
-    
 </body>
+
 </html>
