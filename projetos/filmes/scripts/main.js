@@ -1,7 +1,7 @@
 'use strict'
 //ELEMENTOS E VARIÁVEIS
 let urlFilmesPopulares = 'https://api.themoviedb.org/3/trending/movie/day?language=PT-BR'
-let urlSeriesPopulares = 'https://api.themoviedb.org/3/trending/tv/week?language=PT-BR'
+let urlSeriesPopulares = 'https://api.themoviedb.org/3/trending/tv/week?language=PT-BR&page=2'
 let urlMaisVotados = 'https://api.themoviedb.org/3/movie/top_rated?language=pt-br&page=1'
 let urlImagens = 'https://image.tmdb.org/t/p/w500'
 let conteinerFilmes = document.querySelector('#conteiner-filmes')
@@ -17,19 +17,6 @@ const options = {
     }
 };
 
-//MENU HAMBÙRGUER
-let menu = document.querySelector('#nav')
-let btnMenu = document.querySelector('#btn-menu')
-
-const toggleMenu = () =>{
-    btnMenu.classList.toggle('fa-bars')
-    btnMenu.classList.toggle('fa-xmark')
-
-    menu.classList.toggle('ativo')
-
-}
-
-btnMenu.addEventListener('click', toggleMenu)
 
 //FUNÇÕES
 
@@ -125,7 +112,7 @@ const procurarFilme = async() =>{
 
         
         conteinerFilmes.innerHTML =''
-        inputPesquisa.value = ''
+        // inputPesquisa.value = ''
         
         criarFilmes(dadosFilme)
         await procurarSerie(itemPesquisado)
@@ -262,6 +249,7 @@ document.querySelector('#btn-procurar').addEventListener('click', procurarFilme)
 inputPesquisa.addEventListener('keydown', (e) =>{
     e.key == 'Enter' ? procurarFilme() : false
 })
+inputPesquisa.oninput = procurarFilme
 
 document.querySelector('#melhor-avaliados').addEventListener('click', requisicaoPadrao)
 document.querySelector('#series-populares').addEventListener('click', seriesPopulares)

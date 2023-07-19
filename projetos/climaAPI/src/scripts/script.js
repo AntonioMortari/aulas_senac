@@ -1,9 +1,8 @@
 'use strict'
-
 import chaveAPI from "./chave.js"
+import { elementos } from "./utilis.js"
 
 //variaveis e elementos
-const urlBandeiras = 'https://flagsapi.com/BR/flat/64.png'
 let inputCidade = document.querySelector('#cidade-input')
 let btnProcurar = document.querySelector('#buscar')
 let msgErro = document.querySelector('#msg-erro')
@@ -11,25 +10,21 @@ let loading = document.querySelector('#loading')
 
 let conteinerDados = document.querySelector('#weather-data')
 conteinerDados.style.display = 'none'
-let cidadePesquisada = document.querySelector('#cidade')
-let bandeira = document.querySelector('#pais')
-let temperatura = document.querySelector('#numero-temperatura')
-let descricao = document.querySelector('#descricao')
-let iconeTempo = document.querySelector('#weather-icon')
-let umidade = document.querySelector('#umidade span')
-let vento = document.querySelector('#vento span')
+
 
 
 //funções
 const pegarDados = async(cidade) =>{
     msgErro.style.display = 'none'
-    loading.style.display = 'block'
     conteinerDados.style.display = 'none'
+    loading.style.display = 'block'
     let resposta = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&units=metric&appid=${chaveAPI}&lang=pt_br`)
     let dados = await resposta.json()
 
     return dados
 }
+
+
 
 const mostrarDados = async() =>{
     if(inputCidade.value.length == 0){
@@ -48,16 +43,16 @@ const mostrarDados = async() =>{
             loading.style.display = 'none'
             conteinerDados.style.display = 'block'
             msgErro.style.display = 'none'
-            cidadePesquisada.textContent = `${dados.name}`
-            bandeira.src =  `https://flagsapi.com/${dados.sys.country}/flat/64.png`
-            temperatura.textContent = `${dados.main.temp.toFixed(1)} °C` 
-            descricao.textContent = `${dados.weather[0].description}`
-            iconeTempo.src = `https://openweathermap.org/img/wn/${dados.weather[0].icon}.png`
-            umidade.textContent = `${dados.main.humidity}%`
-            vento.textContent = `${dados.wind.speed} Km/h`
+            
+            //mostrar dados
+            elementos.cidadePesquisada.textContent = `${dados.name}`
+            elementos.bandeira.src =  `https://flagsapi.com/${dados.sys.country}/flat/64.png`
+            elementos.temperatura.textContent = `${dados.main.temp.toFixed(1)} °C` 
+            elementos.descricao.textContent = `${dados.weather[0].description}`
+            elementos.iconeTempo.src = `https://openweathermap.org/img/wn/${dados.weather[0].icon}.png`
+            elementos.umidade.textContent = `${dados.main.humidity}%`
+            elementos.vento.textContent = `${dados.wind.speed} Km/h`
         }
-
-
     }
 }
 
