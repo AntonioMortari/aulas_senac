@@ -265,9 +265,10 @@ main{
 }
 
 footer{
+    position: relative;
     width: 100%;
     text-align: center;
-    padding: 20px;
+    padding: 10px 0;
     color: white;
 }
 
@@ -298,15 +299,22 @@ footer a:hover::before{
 }
 
 #voltar-inicio{
+    position: absolute;
+    right: 50px;
+    bottom: 10px;
     background-color: transparent;
     border: none;
     margin-top: 50px;
     animation: animation-arrow 1s linear infinite alternate;
 }
 
+#voltar-inicio a:hover::before{
+    width: 0%;
+}
+
 @keyframes animation-arrow{
     to{
-        transform: translateY(40%);
+        transform: translateY(30%);
     }
 }
 
@@ -315,6 +323,25 @@ footer a:hover::before{
     cursor: pointer;
 }
 
+/* Setas de navegação de página */
+
+#menu-paginas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+.navegar-paginas{
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+#pagina{
+    color: white;
+    font-weight: bold;
+}
+
+/* MOBILE    */
 @media screen and (max-width:720px){
     #nav{
         display: none;

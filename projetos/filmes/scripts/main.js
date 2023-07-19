@@ -1,37 +1,19 @@
 'use strict'
+import { options } from "./utilies.js"
 //ELEMENTOS E VARIÁVEIS
-let urlFilmesPopulares = 'https://api.themoviedb.org/3/trending/movie/day?language=PT-BR'
-let urlSeriesPopulares = 'https://api.themoviedb.org/3/trending/tv/week?language=PT-BR&page=2'
-let urlMaisVotados = 'https://api.themoviedb.org/3/movie/top_rated?language=pt-br&page=1'
 let urlImagens = 'https://image.tmdb.org/t/p/w500'
 let conteinerFilmes = document.querySelector('#conteiner-filmes')
 let inputPesquisa = document.querySelector('#input-pesquisa')
 let itensLocalStorage = JSON.parse(localStorage.getItem('itens')) || []
 
-//autorização
-const options = {
-    method: 'GET',
-    headers: {
-        accept: 'application/json',
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4NTg1NTM3OGU5OTAzZWIxZmMzMzQ5YTIzYjY2YzBlYiIsInN1YiI6IjY0YTdmZmUzZjA1NmQ1MDEzOTA0ZDIyMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.17mEEK3cYMye1wm5Cl9j_RMXVDYVYBNabUIWKxMy-i4'
-    }
-};
+//menu-pagina
+let pagina = 1
+let categoria = 'trending/movie/week?'
+let menuPaginas = document.querySelector('#menu-paginas')
+let spanPagina = document.querySelector('#pagina')
 
 
 //FUNÇÕES
-
-const requisicaoPadrao = async() =>{
-    conteinerFilmes.innerHTML = ''
-    try{
-        let resposta = await fetch(urlMaisVotados, options)
-        let dados = await resposta.json()
-        let dadosFilme = dados.results
-        criarFilmes(dadosFilme)
-    }catch(e){
-        console.log(e)
-    }
-}
-
 const criarFilmes = (dadosFilme) =>{
     dadosFilme.forEach(infoFilme =>{
         let filme = document.createElement('li')
@@ -91,61 +73,21 @@ const mostrarFilmesCriado = (filme,infoFilme) =>{
     })
 }
 
-const procurarFilme = async() =>{
-    if(inputPesquisa.value.lenght == 0){
-        alert('Digite os dados corretamente')
+const requisicao = async(categoria) =>{
+    conteinerFilmes.innerHTML = ''
+    menuPaginas.style.display = 'flex'
+    let resposta = await fetch(`https://api.themoviedb.org/3/${categoria}language=pt-br&page=${pagina}`, options)
+    let dados = await resposta.json()
+    let dadosFilme = dados.results
+
+    if(dados.results == 0){
+        mostrarErro()
         return
     }
-    let itemPesquisado = inputPesquisa.value
 
-        let resposta = await fetch(`https://api.themoviedb.org/3/search/movie?query=${itemPesquisado}&include_adult=false&language=pt-br&page=1`, options)
-        let dados = await resposta.json()
-        if(dados.results == 0){
-            mostrarErro()
-            return
-        }
-        if(dados.results == 0){
-            mostrarErro()
-            return
-        }
-        let dadosFilme = dados.results
-
-        
-        conteinerFilmes.innerHTML =''
-        // inputPesquisa.value = ''
-        
-        criarFilmes(dadosFilme)
-        await procurarSerie(itemPesquisado)
-}
-
-const procurarSerie = async(itemPesquisado) =>{
-    let resposta = await fetch(`https://api.themoviedb.org/3/search/tv?query=${itemPesquisado}&include_adult=false&language=pt-br&page=1`, options)
-    let dados = await resposta.json()
-    let dadosFilme = dados.results
-
+    spanPagina.textContent = `${pagina}`
     criarFilmes(dadosFilme)
 }
-
-const seriesPopulares = async() =>{
-    conteinerFilmes.innerHTML = ''
-
-    let resposta = await fetch(urlSeriesPopulares, options)
-    let dados = await resposta.json()
-    let dadosFilme = dados.results
-
-    criarFilmes(dadosFilme)
-}
-
-const filmesPopulares = async() =>{
-    conteinerFilmes.innerHTML = ''
-
-    let resposta = await fetch(urlFilmesPopulares, options)
-    let dados = await resposta.json()
-    console.log(dados)
-    let dadosFilme = dados.results
-
-    criarFilmes(dadosFilme)
-} 
 
 const mostrarErro = () =>{
     conteinerFilmes.innerHTML = '<p style="color: white; font-size: 1.7rem;">Nenhum resultado encontrado!</p>'
@@ -199,6 +141,7 @@ const pegarDadosItemCurtido = (btn) =>{
 }
 
 const carregarItensCurtidos = () =>{
+    menuPaginas.style.display = 'none'
     conteinerFilmes.innerHTML = ''
     itensLocalStorage = JSON.parse(localStorage.getItem('itens'))
     itensLocalStorage.forEach(item =>{
@@ -239,19 +182,59 @@ const carregarItensCurtidos = () =>{
 
 }
 
-requisicaoPadrao()
+const pegarValorPesquisa = () =>{
+    let itemPesquisado = inputPesquisa.value
+    if(itemPesquisado.length == 0){
+        return
+    }else{
+        categoria = `search/movie?query=${itemPesquisado}&include_adult=false&`
+        requisicao(categoria)
 
+        categoria = `search/tv?query=${itemPesquisado}&include_adult=false&`
+        requisicao(categoria)
+    }
+}
 
-
+requisicao(categoria)
 
 //EVENTOS
-document.querySelector('#btn-procurar').addEventListener('click', procurarFilme)
-inputPesquisa.addEventListener('keydown', (e) =>{
-    e.key == 'Enter' ? procurarFilme() : false
-})
-inputPesquisa.oninput = procurarFilme
+document.querySelector('#btn-procurar').addEventListener('click', pegarValorPesquisa)
+inputPesquisa.oninput = pegarValorPesquisa
 
-document.querySelector('#melhor-avaliados').addEventListener('click', requisicaoPadrao)
-document.querySelector('#series-populares').addEventListener('click', seriesPopulares)
-document.querySelector('#filmes-populares').addEventListener('click', filmesPopulares)
+document.querySelector('#melhor-avaliados').addEventListener('click', () =>{
+    categoria = 'movie/top_rated?'
+    requisicao(categoria)
+})
+
+document.querySelector('#series-populares').addEventListener('click', () =>{
+    categoria = 'trending/tv/day?'
+    requisicao(categoria)
+})
+
+document.querySelector('#filmes-populares').addEventListener('click', () =>{
+    categoria = 'trending/movie/day?'
+    requisicao(categoria)
+})
+
 document.querySelector('#filmes-curtidos').addEventListener('click', carregarItensCurtidos)
+
+// menu de página
+document.querySelector('#proxima-pagina').addEventListener('click', () =>{
+    pagina++
+    requisicao(categoria)
+})
+document.querySelector('#voltar-pagina').addEventListener('click', () =>{
+    if(pagina == 1){
+        return
+    }
+    pagina--
+    requisicao(categoria)
+})
+document.querySelector('#primeira-pagina').addEventListener('click', () =>{
+    pagina = 1
+    requisicao(categoria)
+})
+document.querySelector('#ultima-pagina').addEventListener('click', () =>{
+    pagina = 300
+    requisicao(categoria)
+})
