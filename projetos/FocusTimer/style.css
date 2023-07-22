@@ -1,0 +1,76 @@
+:root{
+    --bg-color:#121214;
+    --primary-color:rgb(66, 211, 255);
+    --controls-bg-color:rgba(66, 211, 255, 0.13);
+    --font-color:white;
+
+    font-size: 62.5%;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+*::selection{background-color: var(--controls-bg-color);}
+
+button{
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+
+body{
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: white;
+
+    display: grid;
+}
+
+#conteiner{
+    align-self: flex-end;
+    justify-self: center;
+    text-align: center;
+}
+
+#conteiner p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+
+    font-size: clamp(4rem, 7rem, 10rem);
+    font-weight: bold;
+    
+}
+
+#controls{
+    background-color: var(--controls-bg-color);
+    border-radius: 4rem;
+}
+
+footer{
+    align-self: flex-end;
+    justify-self: end;
+}
+
+/* #buttonstopAlarm{
+    font-size: 2rem;
+    margin-top: 3.5rem;
+
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: .2rem;
+
+    border: 2px solid var(--primary-color);
+    padding: 1rem;
+    border-radius: 2rem;
+} */
+
+.hide{
+    display: none;
+}
