@@ -61,7 +61,7 @@ buttons.play.onclick = () => {
 
 buttons.pause.onclick = () => {
     buttons.pause.classList.add('hide')
-    buttons.buttonplay.classList.remove('hide')
+    buttons.play.classList.remove('hide')
 
     clearTimeout(timeOutId)
 }
