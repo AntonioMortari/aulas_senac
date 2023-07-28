@@ -1,0 +1,14 @@
+{
+  "name": "api-books",
+  "version": "1.0.0",
+  "description": "api fake books with json server\u001b[D\u001b[C",
+  "main": "index.js",
+  "scripts": {
+    "start": "json-server --watch db.json"
+  },
+  "author": "AntonioMortari",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.3"
+  }
+}
