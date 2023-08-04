@@ -1,19 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import styled from 'styled-components'
 
+// theme
 import{ThemeProvider} from 'styled-components'
 import theme from './styles/theme'
 
+// router
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-// components and pages
+// components
 import Menu from './components/Menu'
 import Details from './pages/Details'
-import MoviesPage from './pages/MoviesPage'
 
-import './styles/global.css'
+//Pages
+import MoviesPage from './pages/MoviesPage'
 import NotFound from './pages/NotFound'
+import SearchPage from './pages/SearchPage'
+
+//Global rtyles
+import './styles/global.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -26,6 +31,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path='/' element={<MoviesPage />} />
         <Route path='/movies/:id' element={<Details />} />
+        <Route path='/movies/search/:value' element={<SearchPage />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </Router>

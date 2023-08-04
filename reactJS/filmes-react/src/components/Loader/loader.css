@@ -2,8 +2,9 @@
     --uib-size: 2.8rem;
     --uib-speed: .9s;
     --uib-color: #00C896;
-    position: relative;
-    top: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
     display: flex;
     align-items: center;
     justify-content: flex-start;

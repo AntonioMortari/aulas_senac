@@ -57,6 +57,7 @@ const mostrarFilmesCriado = (filme,infoFilme) =>{
         <abbr title="Marcar como gostei"><i class="fa-regular fa-heart curtir" style="color: #f82525;"></i></abbr>
     </div>
 </div>
+
     `
     
     let btn = filme.querySelector('.curtir')

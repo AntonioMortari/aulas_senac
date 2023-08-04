@@ -1,0 +1,19 @@
+
+.new-project-conteiner{
+    width: 450px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+}
+
+.new-project-conteiner h1{
+    color: #262626;
+    font-size: 2rem;
+    margin-bottom: .7rem;
+}
+
+.new-project-conteiner p{
+    color: #7b7b7b;
+    font-size: 1.2rem;
+}

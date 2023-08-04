@@ -6,6 +6,8 @@ let ConteinerDetail = styled.div`
     display: flex;
     align-items: center;
     gap: 5px;
+    margin: 10px;
+    flex-wrap: wrap;
 
     >p{
         display: flex;

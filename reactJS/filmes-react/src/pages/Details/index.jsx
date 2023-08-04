@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
-import { FaStar } from 'react-icons/fa';
+import {Link} from 'react-router-dom'
+import { FaStar, FaArrowLeft } from 'react-icons/fa';
 
 import key from "../../api/key";
 import styled from 'styled-components';
@@ -22,20 +23,57 @@ const ConteinerDetails = styled.div`
     flex-direction: column;
     gap: 20px;
 
+    @media screen and (max-width:600px){
+        width: 90%;
+
+        overflow-x: auto;
+    }
+
+    >.arrow-left > svg{
+        transform: scale(1.2);
+        color:${({theme}) => theme.COLORS.primary_color};
+    }
+
+    >img{
+        display:block;
+        border-radius: 10px;
+    }
+
     >.conteiner-info{
         display:flex;
         flex-direction:column;
         gap:20px;
-
-        >.star{
-            color: yellow;
-        }
     }
 
     .title-movie{
         font-size: 1.8rem;
         text-align: center;
     }
+
+    >.overview{
+        color: ${({theme}) => theme.COLORS.txt_color};
+        opacity:0.8;
+        font-size: 1.2rem;
+        line-height: 1.7rem;
+
+        >h4{
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 25px;
+            position : relative;
+        }
+
+        >h4:before{
+            content: '';
+            background-color: ${({theme}) => theme.COLORS.primary_color};
+            width: 100%;
+            height: 3px;
+            position: absolute;
+            bottom: -10px;
+            left:0;
+        }
+    }
+
 
     
 `;
@@ -64,7 +102,13 @@ function Details() {
         <ConteinerDetails>
             {dataMovie ? (
                 <>
-                    <img src={`${imageUrl}${dataMovie.backdrop_path}`} alt={`Cartaz do ${dataMovie.title}`} />
+                    <Link className="arrow-left" to="/">
+                        <FaArrowLeft />
+                    </Link>
+                    {dataMovie.backdrop_path &&
+                      <img src={`${imageUrl}${dataMovie.backdrop_path}`} alt={`Cartaz do ${dataMovie.title}`} />
+                    }
+                   
 
                     <div className="conteiner-info">
                         <h3 className="title-movie">{dataMovie.title}</h3>
@@ -105,8 +149,11 @@ function Details() {
                         ) : (
                             false
                         )}
+                    </div>
 
-                        {console.log(dataMovie)}
+                    <div className="overview">
+                        <h4>Descrição</h4>
+                        {dataMovie.overview}
                     </div>
                 </>
             ) : (

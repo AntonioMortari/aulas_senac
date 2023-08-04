@@ -1,0 +1,18 @@
+
+.link-button{
+    background-color: #262626;
+    color: #efefef;
+
+    padding: 10px;
+    border-radius: 5px;
+
+    font-size: 1.1rem;
+
+    text-decoration: none;
+
+    transition: .2s;
+}
+
+.link-button:hover{
+    transform: scale(1.05);
+}

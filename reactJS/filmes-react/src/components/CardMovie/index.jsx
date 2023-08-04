@@ -1,33 +1,37 @@
 import styled from 'styled-components'
-import {FaStar} from 'react-icons/fa'
+import {FaStar, FaRegHeart} from 'react-icons/fa'
 
 
 import { Link } from 'react-router-dom'
 
 const Card = styled.div`
-    width: 30%;
+transform: scale(.95);
+    width: 280px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
 
-    padding: 20px;
+    padding: 12px;
 
     background-color: ${({theme}) => theme.COLORS.bg_color_header};
 
     border-radius: 10px;
 
     >img{
+        display: block;
+        border-radius: 10px;
+        margin-bottom: 5px;
         height: 80%;
     }
 
     >.info-movie{
         display: flex;
         flex-direction: column;
-        gap: 5px;
+        gap: 15px;
 
         >h2{
-            font-size: 1.7rem;
+            font-size: 1.5rem;
             text-align: center;
         }
         
@@ -43,23 +47,46 @@ const Card = styled.div`
             display: flex;
             gap: 5px;
 
-            >svg{
+            >.star{
                 color: #ebeb0b;
             }
         }
 
-        >a{
-            display: block;
+        >.action{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 10px;
+
+            margin-top: 10px;
+
+            >svg{
+                transform: scale(1.2);
+                color: ${({theme}) => theme.COLORS.primary_color};
+                cursor: pointer;
+
+                transition: .3s;
+            }
+
+            >svg:hover{
+                transform: scale(1.3);
+            }
+        }
+
+        >.action a{
             width: 20%;
             color: ${({theme}) => theme.COLORS.primary_color};
             font-weight: bold;
-            margin-top: 10px;
+
             transition: .2s;
         }
 
         a:hover{
             color: ${({theme}) => theme.COLORS.bg_color};
         }
+
+        
     }
     
     `
@@ -78,16 +105,20 @@ function CardMovie({data}) {
 
                 <p>
                     <p>
-                        <FaStar />
+                        <FaStar className='star' />
                         {data.vote_average.toFixed(1)}
                     </p>
 
                     {date}
                 </p>
 
-                    <Link to={`/movies/${data.id}`}>
-                        Detalhes
-                    </Link>
+                    <div className='action'>
+                        <Link to={`/movies/${data.id}`}>
+                            Detalhes
+                        </Link>
+
+                        <FaRegHeart />
+                    </div>
             </div>
         </Card>
     );

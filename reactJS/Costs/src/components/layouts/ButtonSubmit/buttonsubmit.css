@@ -1,0 +1,19 @@
+
+button{
+    background-color: #262626;
+    color: #e7e7e7;
+
+    border: none;
+    padding: 10px;
+    max-width: 50%;
+    min-width: 20%;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+button:hover{
+    color: #ffbb33;
+}

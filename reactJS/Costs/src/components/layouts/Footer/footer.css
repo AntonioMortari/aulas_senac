@@ -1,0 +1,36 @@
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    background-color: #262626;
+
+    padding: 10px 0px;
+}
+
+.box-icons{
+    display: flex;
+    gap: 20px;
+}
+
+.box-icons svg{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+
+    transition: .2s;
+
+    color: #efefef;
+}
+
+.box-icons svg:hover{
+    color: #ffbb33;
+}
+
+footer span{
+    font-weight: bold;
+    color: #efefef;
+}

@@ -1,0 +1,13 @@
+
+.conteiner-select{
+    color: #262626;
+}
+
+.conteiner-select select{
+    padding: 5px;
+
+    border: none;
+    color: #262626;
+
+    outline: none;
+}
