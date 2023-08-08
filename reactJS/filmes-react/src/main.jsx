@@ -18,7 +18,7 @@ import NotFound from './pages/NotFound'
 import SearchPage from './pages/SearchPage'
 import Favorites from './pages/Favorites'
 
-//Global rtyles
+//Global styles
 import './styles/global.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(

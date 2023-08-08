@@ -30,15 +30,13 @@ function Favorites() {
             <Msg content="Meus" span="Favoritos" />
 
             <ConteinerMovies>
-            <ConteinerMovies>
-                {dataMovies ? (
+                {dataMovies.length != 0  ? (
                     dataMovies.map((movie,index) => (
-                        <CardMovie data={movie} key={movie.id} />
+                        <CardMovie data={movie} key = {index} />
                     ))
                 ) : (
-                    <Loader />
+                    <Msg content = "Você ainda não favoritou nenhum filme!" />
                 )}
-            </ConteinerMovies>
             </ConteinerMovies>
         </> 
      );

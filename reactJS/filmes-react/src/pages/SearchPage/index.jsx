@@ -36,7 +36,11 @@ function SearchPage() {
                         movie.poster_path && <CardMovie key={movie.id} data={movie} />
                     )}
                 </ConteinerMovies>
-                <PageNavigation page={page} statePage={setPage} />
+
+                        
+                {dataMovies.length == 20 &&(
+                    <PageNavigation page={page} statePage={setPage} />
+                )}
                 </>
             ) : (
                 <Msg content="Sem resultados para" span={`"${value}"`}/>
