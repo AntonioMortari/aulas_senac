@@ -14,7 +14,7 @@ const P = styled.p`
 function Msg({content, span}) {
     return ( 
         <P>
-            {content} <span>" {span} "</span>
+            {content} <span>{span}</span>
         </P>
      );
 }

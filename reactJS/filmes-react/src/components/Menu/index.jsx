@@ -12,14 +12,14 @@ const Header = styled.header`
 
     width: 100%;
 
-    padding: 15px 70px;
+    padding: 15px 5%;
 
     @media screen and (max-width:490px){
         padding: 15px;
 
         margin-bottom: 150px;
 
-        justify-content: center;
+        justify-content: space-around;
 
         >label{
             position: absolute;
@@ -75,10 +75,36 @@ const Header = styled.header`
         }
     }
 
+    >a{
+        color:  ${({theme}) => theme.COLORS.txt_color};
+        font-weight: bold;
+
+        position: relative;
+
+        &::before{
+            content: '';
+
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+
+            width: 0%;
+            height: 2px;
+            background-color: ${({theme}) => theme.COLORS.primary_color};
+            transition: all.3s;
+
+        }
+
+        &:hover::before{
+            width: 100%;
+        }
+    }
+
 `
 
 function Menu() {
     const navigate = useNavigate()
+    
     return ( 
         <Header>
         <h1><Link to="/">SpotFlix</Link></h1>
@@ -103,6 +129,8 @@ function Menu() {
                 }
             }} />
         </label>
+
+        <Link to="/favorites">Meus Favoritos</Link>
       </Header>
      );
 }

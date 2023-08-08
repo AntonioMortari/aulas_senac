@@ -1,103 +1,141 @@
+import { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import {FaStar, FaRegHeart} from 'react-icons/fa'
+import { FaStar, FaRegHeart, FaHeart, FaTrash } from 'react-icons/fa'
+
+import dataFavorites from '../../../db.json'
+let idFavorites = dataFavorites.favorites
+let arrayIds = idFavorites.map(obj => {
+    return (
+        obj.id
+    )
+})
 
 
 import { Link } from 'react-router-dom'
 
 const Card = styled.div`
-transform: scale(.95);
-    width: 280px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-
-    padding: 12px;
-
-    background-color: ${({theme}) => theme.COLORS.bg_color_header};
-
-    border-radius: 10px;
-
-    >img{
-        display: block;
-        border-radius: 10px;
-        margin-bottom: 5px;
-        height: 80%;
-    }
-
-    >.info-movie{
+    transform: scale(.95);
+        width: 280px;
         display: flex;
         flex-direction: column;
-        gap: 15px;
+        justify-content: space-between;
 
-        >h2{
-            font-size: 1.5rem;
-            text-align: center;
+
+        padding: 12px;
+
+        background-color: ${({ theme }) => theme.COLORS.bg_color_header};
+
+        border-radius: 10px;
+
+        >img{
+            display: block;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            height: 80%;
         }
-        
-        >p{
+
+        >.info-movie{
             display: flex;
-            align-items: center;
-            justify-content: space-between;
+            flex-direction: column;
+            gap: 15px;
 
-            font-size: 1.1rem;
-        }
-
-        >p p:first-child{
-            display: flex;
-            gap: 5px;
-
-            >.star{
-                color: #ebeb0b;
+            >h2{
+                font-size: 1.5rem;
+                text-align: center;
             }
-        }
+            
+            >p{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
 
-        >.action{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            padding: 10px;
-
-            margin-top: 10px;
-
-            >svg{
-                transform: scale(1.2);
-                color: ${({theme}) => theme.COLORS.primary_color};
-                cursor: pointer;
-
-                transition: .3s;
+                font-size: 1.1rem;
             }
 
-            >svg:hover{
-                transform: scale(1.3);
+            >p p:first-child{
+                display: flex;
+                gap: 5px;
+
+                >.star{
+                    color: #ebeb0b;
+                }
             }
+
+            >.action{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                padding: 10px;
+
+                margin-top: 10px;
+
+                >svg{
+                    transform: scale(1.2);
+                    color: ${({ theme }) => theme.COLORS.primary_color};
+                    cursor: pointer;
+
+                    transition: .3s;
+                }
+
+                >svg:hover{
+                    transform: scale(1.3);
+                }
+            }
+
+            >.action a{
+                width: 20%;
+                color: ${({ theme }) => theme.COLORS.primary_color};
+                font-weight: bold;
+
+                transition: .2s;
+            }
+
+            a:hover{
+                color: ${({ theme }) => theme.COLORS.bg_color};
+            }
+
+            
         }
-
-        >.action a{
-            width: 20%;
-            color: ${({theme}) => theme.COLORS.primary_color};
-            font-weight: bold;
-
-            transition: .2s;
-        }
-
-        a:hover{
-            color: ${({theme}) => theme.COLORS.bg_color};
-        }
-
-        
-    }
-    
     `
 
 
-function CardMovie({data}) {
+function CardMovie({ data }) {
+    const [isFavorite, setIsFavorite] = useState(false);
+
+    const handleIsFavorite = () => {
+        setIsFavorite(!isFavorite);
+    };
+
+    useEffect(() => {
+        if (isFavorite) {
+            console.log('adicionado aos favoritos')
+            fetch('http://localhost:5000/favorites', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    id: data.id
+                }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+
+                    console.log(data);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }
+    }, [isFavorite])
+
+
     const imageUrl = 'https://image.tmdb.org/t/p/w500'
     let date = data.release_date.split('-')
     date = date[0]
     return (
-        <Card key={data.id}>
+        <Card key={data.id} id={data.id}>
             <img src={`${imageUrl}${data.poster_path}`} alt={`Cartaz do ${data.title}`} />
 
             <div className='info-movie'>
@@ -112,13 +150,18 @@ function CardMovie({data}) {
                     {date}
                 </p>
 
-                    <div className='action'>
-                        <Link to={`/movies/${data.id}`}>
-                            Detalhes
-                        </Link>
+                <div className='action'>
+                    <Link to={`/movies/${data.id}`}>
+                        Detalhes
+                    </Link>
 
-                        <FaRegHeart />
-                    </div>
+                    {isFavorite ? (
+                        <FaHeart onClick={handleIsFavorite} />
+                    ) : (
+                        <FaRegHeart onClick={handleIsFavorite} />
+                    )}
+
+                </div>
             </div>
         </Card>
     );

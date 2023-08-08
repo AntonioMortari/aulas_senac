@@ -16,6 +16,7 @@ import Details from './pages/Details'
 import MoviesPage from './pages/MoviesPage'
 import NotFound from './pages/NotFound'
 import SearchPage from './pages/SearchPage'
+import Favorites from './pages/Favorites'
 
 //Global rtyles
 import './styles/global.css'
@@ -32,6 +33,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='/' element={<MoviesPage />} />
         <Route path='/movies/:id' element={<Details />} />
         <Route path='/movies/search/:value' element={<SearchPage />} />
+        <Route path='/favorites' element={<Favorites />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </Router>
