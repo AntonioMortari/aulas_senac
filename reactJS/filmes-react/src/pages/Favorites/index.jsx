@@ -37,7 +37,7 @@ function Favorites() {
             <Msg content="Meus" span="Favoritos" />
 
             <ConteinerMovies>
-                {dataMovies.length != 0  ? (
+                {dataMovies.length > 0  ? (
                     dataMovies.map((movie,index) => (
                         <CardMovie data={movie} key = {index} />
                     ))
