@@ -8,22 +8,29 @@ import Msg from '../../components/Msg'
 
 
 function Favorites() {
+    let datas= []
     const [dataMovies, setDataMovies] = useState([])
+
+    const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites')) || [] )
 
     const getDataMovie = async(id) =>{
         let resp = await fetch(`https://api.themoviedb.org/3/movie/${id}?language=pt-br`,key)
         let data = await resp.json()
 
-        setDataMovies(prevDataMovies => [...prevDataMovies,data])
+        setDataMovies(prevDataMovies => [...prevDataMovies, data])
+
+        
     }
 
     useEffect(() =>{
-        if(data.favorites != 0){
-            data.favorites.forEach(favorite => {
-                getDataMovie(favorite.id)
+        if(favorites.length > 0){
+            favorites.forEach(idFavorite =>{
+                getDataMovie(idFavorite)
             })
         }
     },[])
+
+    
 
     return (
         <>

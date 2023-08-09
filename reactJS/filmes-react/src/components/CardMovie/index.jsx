@@ -101,35 +101,29 @@ const Card = styled.div`
 
 
 function CardMovie({ data }) {
-    const [isFavorite, setIsFavorite] = useState(false);
+    const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites')) || [] )
 
-    const handleIsFavorite = () => {
-        setIsFavorite(!isFavorite);
+    const addFavorites = (id) => {
+        if (!favorites.includes(id)) {
+            const newFavorites = [...favorites, id];
+            setFavorites(newFavorites);
+            localStorage.setItem('favorites', JSON.stringify(newFavorites));
+        }
     };
 
-    useEffect(() => {
-        if (isFavorite) {
-            console.log('adicionado aos favoritos')
-            fetch('http://localhost:5000/favorites', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    id: data.id
-                }),
-            })
-                .then((response) => response.json())
-                .then((data) => {
+    const removeFavorites = (id) =>{
+        const indexToRemove = favorites.indexOf(id)
 
-                    console.log(data);
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
+        if (indexToRemove !== -1) {
+            //se encontrar
+            const newFavorites = [...favorites]
+            newFavorites.splice(indexToRemove, 1)
+    
+            setFavorites(newFavorites)
+            localStorage.setItem('favorites', JSON.stringify(newFavorites))
         }
-    }, [isFavorite])
-
+        
+    }
 
     const imageUrl = 'https://image.tmdb.org/t/p/w500'
     let date = data.release_date.split('-')
@@ -155,10 +149,15 @@ function CardMovie({ data }) {
                         Detalhes
                     </Link>
 
-                    {isFavorite ? (
-                        <FaHeart onClick={handleIsFavorite} />
+
+                    {favorites.includes(data.id) ? (
+                        <FaHeart onClick={() =>{
+                            removeFavorites(data.id)
+                        }} />
                     ) : (
-                        <FaRegHeart onClick={handleIsFavorite} />
+                        <FaRegHeart onClick={() =>{
+                            addFavorites(data.id)
+                        }} />
                     )}
 
                 </div>

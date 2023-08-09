@@ -12,7 +12,6 @@ function SearchPage() {
     let { value } = useParams();
     let [dataMovies, setDataMovies] = useState([]);
     let [page, setPage] = useState(1)
-
     const getData = async (url) => {
         let resp = await fetch(url, key);
         let data = await resp.json();
